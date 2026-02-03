@@ -1,0 +1,119 @@
+body {
+    height: 100vh; /* full screen height */
+    display: flex; /* flexbox layout */
+    justify-content: center; /* center horizontally */
+    align-items: center; /* center vertically */
+    font-family: Arial, sans-serif;
+    background: #ffe6ee;
+}
+
+.container {
+    text-align: center; /* center text */
+}
+
+.buttons {
+    margin-top: 20px;
+    position: relative; /* allows moving No button */
+}
+
+/* General button styles */
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative; /* required for transform movement */
+    transition: transform 0.2s ease; /* smooth animation */
+}
+
+/* Yes button */
+.yes {
+    background-color: #ff4d6d;
+    color: white;
+    position: static; /* stays in place */
+}
+
+/* No button */
+.no {
+    background-color: #ccc;
+    color: black;
+}
+
+/* Responsive for mobile */
+@media (max-width: 480px) {
+    button {
+        padding: 10px 15px;
+        font-size: 16px;
+        margin: 5px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+}
+
+button .icon {
+    width: 30px;      /* size of icon */
+    height: 30px;     /* square icons */
+    margin-right: 8px; /* space between icon and text */
+    vertical-align: middle; /* aligns with text */
+}
+
+
+/* Notification box sliding from right */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: -350px; /* start hidden outside the screen */
+    width: 300px;
+    background-color: #ffe6ee;
+    border: 2px solid #ff4d6d;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: right 0.5s ease;
+    z-index: 1000;
+}
+
+.notification.show {
+    right: 20px; /* visible */
+}
+
+.notification p {
+    margin: 0 0 10px 0;
+    color: #ff4d6d;
+    font-weight: bold;
+}
+
+.notification button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff4d6d;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.backButton {
+    position: fixed;     /* fixes it relative to the viewport */
+    top: 20px;           /* distance from the top */
+    right: 20px;         /* distance from the right */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff4d6d;
+    color: white;
+    cursor: pointer;
+    z-index: 1000;       /* makes sure it’s above other elements */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+}
+
+.backButton:hover {
+    background-color: #ff1a45; /* darker on hover */
+}
